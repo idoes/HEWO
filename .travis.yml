@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cong/hewo -f Dockerfile.dev .
+
+script:
+  - docker run cong/hewo npm run test -- --coverage
